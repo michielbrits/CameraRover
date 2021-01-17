@@ -1,0 +1,42 @@
+ * Serving Flask app "appCam" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 588-590-603
+192.168.1.56 - - [15/Feb/2020 14:52:02] "GET /video_feed HTTP/1.1" 200 -
+192.168.1.56 - - [15/Feb/2020 14:52:41] "GET /video_feed HTTP/1.1" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/werkzeug/serving.py", line 270, in run_wsgi
+    execute(self.server.app)
+  File "/usr/lib/python2.7/dist-packages/werkzeug/serving.py", line 261, in execute
+    write(data)
+  File "/usr/lib/python2.7/dist-packages/werkzeug/serving.py", line 242, in write
+    self.wfile.write(data)
+IOError: [Errno 32] Broken pipe
+ * Serving Flask app "appCam" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+192.168.1.56 - - [15/Feb/2020 15:08:22] "GET /video_feed HTTP/1.1" 200 -
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/SocketServer.py", line 599, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python2.7/SocketServer.py", line 334, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python2.7/SocketServer.py", line 657, in __init__
+    self.finish()
+  File "/usr/lib/python2.7/SocketServer.py", line 716, in finish
+    self.wfile.close()
+  File "/usr/lib/python2.7/socket.py", line 283, in close
+    self.flush()
+  File "/usr/lib/python2.7/socket.py", line 307, in flush
+    self._sock.sendall(view[write_offset:write_offset+buffer_size])
+error: [Errno 32] Broken pipe
+192.168.1.56 - - [15/Feb/2020 15:14:20] "GET /video_feed HTTP/1.1" 200 -
