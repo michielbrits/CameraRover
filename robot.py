@@ -5,9 +5,11 @@ import RPi.GPIO as GPIO
 import pigpio
 import json
 import threading
-
 pi = pigpio.pi()
 GPIO.setmode(GPIO.BCM)
+pi.set_PWM_dutycycle(25, 255)
+pi.set_servo_pulsewidth(14, 1500)
+pi.set_servo_pulsewidth(15, 1500)
 
 class Motor:
   def __init__(self, pin1, pin2):
@@ -107,6 +109,12 @@ def processjson(message):
    xvalue = j['x']
    H1.Drive(xvalue, yvalue)
    H2.Drive(xvalue, yvalue)
+   if j['s'] != None:
+    servovalue = j['s']
+    pi.set_servo_pulsewidth(15, servovalue)
+   if j['k'] != None:
+    servovalue = j['k']
+    pi.set_servo_pulsewidth(14, servovalue)
 
 def breakh():
   print("nothing received anymore (1s). Executing EMERGENCY brake!")
